@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.env
+venv/
+.venv/
+terraform/.terraform/
+terraform/*.tfstate*
+terraform/builds/
+tmp_kaggle_download/
+.DS_Store
+Thumbs.db
