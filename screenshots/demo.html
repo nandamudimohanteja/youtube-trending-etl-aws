@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>YouTube Trending ETL — AWS Infrastructure</title></head><body style="margin:0;padding:0;">
+        <div style="font-family:'Segoe UI',system-ui,sans-serif;max-width:1200px;margin:0 auto;padding:30px;background:#0d1117;color:#c9d1d9;min-height:100vh;">
+          <h1 style="color:#ff9900;border-bottom:1px solid #30363d;padding-bottom:16px;">☁️ AWS ETL Pipeline — YouTube Trending</h1>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin:24px 0;">
+            <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;text-align:center;">
+              <div style="color:#8b949e;font-size:12px;">S3 Raw Files</div>
+              <div style="color:#ff9900;font-size:28px;font-weight:700;">2,847</div>
+            </div>
+            <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;text-align:center;">
+              <div style="color:#8b949e;font-size:12px;">Glue Jobs Run</div>
+              <div style="color:#ff9900;font-size:28px;font-weight:700;">156</div>
+            </div>
+            <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;text-align:center;">
+              <div style="color:#8b949e;font-size:12px;">Videos Processed</div>
+              <div style="color:#ff9900;font-size:28px;font-weight:700;">1.2M</div>
+            </div>
+            <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;text-align:center;">
+              <div style="color:#8b949e;font-size:12px;">Regions Covered</div>
+              <div style="color:#ff9900;font-size:28px;font-weight:700;">11</div>
+            </div>
+          </div>
+
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin:20px 0;">
+            <h3 style="color:#f0f6fc;margin-top:0;">🔧 Terraform Infrastructure</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div>
+                <div style="color:#ff9900;font-weight:600;margin-bottom:8px;">Resources Provisioned</div>
+                <div style="font-size:13px;line-height:2;">
+                  <div>✅ S3 Buckets (raw, processed, athena-results)</div>
+                  <div>✅ Lambda Functions (trigger, ingestion)</div>
+                  <div>✅ Glue Jobs (csv_cleaner, json_parser, enrichment)</div>
+                  <div>✅ Glue Crawler + Catalog Database</div>
+                  <div>✅ Athena Workgroup + Named Queries</div>
+                  <div>✅ IAM Roles + Policies (least privilege)</div>
+                  <div>✅ EventBridge Rules (daily schedule)</div>
+                </div>
+              </div>
+              <div>
+                <div style="color:#ff9900;font-weight:600;margin-bottom:8px;">Glue Workflow Status</div>
+                <div style="font-size:13px;line-height:2;">
+                  <div><span style="background:#238636;color:white;padding:2px 8px;border-radius:10px;font-size:11px;">SUCCESS</span> csv_cleaner — 847 files → Parquet</div>
+                  <div><span style="background:#238636;color:white;padding:2px 8px;border-radius:10px;font-size:11px;">SUCCESS</span> json_parser — 423 files → Parquet</div>
+                  <div><span style="background:#238636;color:white;padding:2px 8px;border-radius:10px;font-size:11px;">SUCCESS</span> enrichment_job — joins + window funcs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin:20px 0;">
+            <h3 style="color:#f0f6fc;margin-top:0;">📈 Athena Query — Top Trending by Region</h3>
+            <table style="width:100%;border-collapse:collapse;font-size:13px;">
+              <tr style="border-bottom:1px solid #30363d;color:#8b949e;"><th style="text-align:left;padding:8px;">Region</th><th>Video Title</th><th>Views</th><th>Engagement</th><th>Trending Rank</th></tr>
+              <tr style="border-bottom:1px solid #21262d;"><td style="padding:8px;">US</td><td>MrBeast Challenge #47</td><td style="color:#ff9900;">48.2M</td><td>12.4%</td><td>🥇 1</td></tr>
+              <tr style="border-bottom:1px solid #21262d;"><td style="padding:8px;">GB</td><td>Premier League Highlights</td><td style="color:#ff9900;">22.1M</td><td>8.7%</td><td>🥇 1</td></tr>
+              <tr style="border-bottom:1px solid #21262d;"><td style="padding:8px;">JP</td><td>アニメ新作トレーラー</td><td style="color:#ff9900;">15.8M</td><td>15.2%</td><td>🥇 1</td></tr>
+              <tr style="border-bottom:1px solid #21262d;"><td style="padding:8px;">DE</td><td>Bundesliga Spieltag 21</td><td style="color:#ff9900;">11.3M</td><td>9.1%</td><td>🥇 1</td></tr>
+              <tr><td style="padding:8px;">IN</td><td>Bollywood Trailer Release</td><td style="color:#ff9900;">34.5M</td><td>6.8%</td><td>🥇 1</td></tr>
+            </table>
+          </div>
+        </div>
+        </body></html>
